@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singapore Visa for Indians</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .main-image,
+        .sub-image {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        .rounded-custom {
+            border-radius: 12px;
+        }
+
+        .equal-height {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sub-image-wrapper {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .sub-image-wrapper .col-6 {
+            padding: 0;
+        }
+
+        .main-image-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            transform: translateY(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .review-text {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .title-text {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .sub-image-wrapper .col-6 {
+            padding: 0;
+        }
+
+        /* Add styling for the hover effect */
+        .image-container:hover .overlay {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row no-gutters d-flex align-items-stretch">
+            <!-- Main Column with Large Image -->
+            <div class="col-md-6 image-container">
+                <div class="main-image-container rounded-custom overflow-hidden h-100 m-2">
+                    <img src="https://picsum.photos/600/800" class="img-fluid main-image" alt="Main Image">
+                    <!-- Overlay with Text -->
+                    <div class="overlay">
+                        <div class="review-text">3 * and 720 reviews</div>
+                        <div class="title-text">Singapore Visa</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Column with Smaller Images -->
+            <div class="col-md-6">
+                <div class="sub-image-wrapper">
+                    <div class="col-6">
+                        <img src="https://picsum.photos/300/400" class="img-fluid sub-image rounded-custom m-2" alt="Image 1">
+                    </div>
+                    <div class="col-6">
+                        <img src="https://picsum.photos/300/400?random=1" class="img-fluid sub-image rounded-custom m-2" alt="Image 2">
+                    </div>
+                </div>
+                <div class="sub-image-wrapper mt-2">
+                    <div class="col-6">
+                        <img src="https://picsum.photos/300/400?random=2" class="img-fluid sub-image rounded-custom m-2" alt="Image 3">
+                    </div>
+                    <div class="col-6">
+                        <img src="https://picsum.photos/300/400?random=3" class="img-fluid sub-image rounded-custom m-2" alt="Image 4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Get all image containers
+      const imageContainers = document.querySelectorAll(".container");
+
+      // Add event listeners for mouseenter and mouseleave
+      imageContainers.forEach((container) => {
+        const overlay = container.querySelector(".overlay");
+
+        container.addEventListener("mouseenter", () => {
+          overlay.style.transform = "translateY(0)";
+        });
+
+        container.addEventListener("mouseleave", () => {
+          overlay.style.transform = "translateY(100%)";
+        });
+      });
+    </script>
+  </body>
+</html>
+
+</body>
+</html>
+

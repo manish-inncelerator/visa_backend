@@ -1,0 +1,238 @@
+:root {
+  --icecream-width: clamp(15rem, 20rem, 25vw); /* Decreased width */
+  --icecream-height: clamp(30rem, 40rem, 50vh); /* Decreased height */
+  --border-color: #461b19;
+  --shadow-color: #d3cec4;
+  --slice-colors: #a9d8ea, #ab96db, #fcbad2, #ffffd2;
+  --stick-color: #ffd379;
+  --stick-shadow: #d9ae58;
+}
+
+/* Container to center the ice cream */
+.ice-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.icecream {
+  width: var(--icecream-width);
+  height: var(--icecream-height);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.icecream:hover {
+  animation: move 1s ease-in-out infinite alternate;
+}
+
+.icecream:hover .icecream-body__slice:nth-child(3) .eye {
+  animation: eyes 1s ease-in infinite alternate;
+}
+
+.icecream:hover .icecream-body__slice:nth-child(3) .mouth__lip {
+  animation: lip 0.5s ease-in infinite alternate;
+}
+
+.icecream:hover .icecream-body__slice:nth-child(3) .mouth__saliva {
+  opacity: 0;
+}
+
+.icecream-body {
+  width: 100%;
+  height: 75%;
+  border-radius: 27rem 27rem 6rem 6rem;
+  border: 1.4rem solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 2.5rem 2.5rem 0 var(--shadow-color);
+}
+
+.icecream-body::before,
+.icecream-body::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.icecream-body::before {
+  box-shadow: inset 1.8rem 0 0 rgba(255, 255, 255, 0.2);
+}
+
+.icecream-body::after {
+  box-shadow: inset -2.4rem 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.icecream-body__slice {
+  display: flex;
+  border-bottom: 1rem solid var(--border-color);
+}
+
+.icecream-body__slice:nth-child(odd) {
+  height: 30%;
+}
+
+.icecream-body__slice:nth-child(even) {
+  height: 20%;
+}
+
+.icecream-body__slice:nth-child(1) {
+  background: #a9d8ea;
+}
+
+.icecream-body__slice:nth-child(2) {
+  background: #ab96db;
+}
+
+.icecream-body__slice:nth-child(3) {
+  background: #fcbad2;
+}
+
+.icecream-body__slice:nth-child(4) {
+  background: #ffffd2;
+}
+
+.icecream-body__slice:nth-child(3) {
+  align-items: center;
+  justify-content: center;
+}
+
+.icecream-body__slice:nth-child(3) .eye {
+  width: 2.8rem;
+  height: 1.5rem;
+  background: var(--border-color);
+  border-radius: 2.8rem 2.8rem 0 0;
+  position: relative;
+  margin-bottom: 3.5rem;
+  transform-origin: 0 50%;
+}
+
+.icecream-body__slice:nth-child(3) .eye::before,
+.icecream-body__slice:nth-child(3) .eye::after {
+  content: "";
+  width: 0.9rem;
+  height: 0.9rem;
+  background: var(--border-color);
+  border-radius: 100%;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(0.4rem);
+}
+
+.icecream-body__slice:nth-child(3) .eye::before {
+  left: 0;
+}
+
+.icecream-body__slice:nth-child(3) .eye::after {
+  right: 0;
+}
+
+.icecream-body__slice:nth-child(3) .eye__retina {
+  width: 1rem;
+  height: 1rem;
+  background: #fcbad2;
+  border-radius: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.icecream-body__slice:nth-child(3) .mouth {
+  position: relative;
+  width: 3rem;
+  height: 2.8rem;
+  margin: 0 1rem;
+}
+
+.icecream-body__slice:nth-child(3) .mouth__lip {
+  width: 100%;
+  height: 100%;
+  background: var(--border-color);
+  border-radius: 30% 30% 50% 50% / 29% 29% 65% 65%;
+  position: absolute;
+  z-index: 1;
+}
+
+.icecream-body__slice:nth-child(3) .mouth__saliva {
+  width: 1.5rem;
+  height: 2.5rem;
+  background: #fff;
+  border-radius: 1rem;
+  position: absolute;
+  transform-origin: 0 0;
+  z-index: 0;
+  animation: saliva 0.75s cubic-bezier(0.4, 0, 1, 1) infinite alternate;
+}
+
+.icecream-body__slice:nth-child(4) {
+  border-bottom: 0;
+}
+
+.icecream-stick {
+  height: 25%;
+  width: 10rem;
+  border-radius: 0 0 10rem 10rem;
+  border: 1.7rem solid var(--border-color);
+  border-top: 0;
+  background: var(--stick-color);
+  position: relative;
+  box-shadow: 2.5rem 2.4rem 0 var(--shadow-color);
+}
+
+.icecream-stick::before {
+  content: "";
+  width: 100%;
+  height: 3.5rem;
+  background: var(--stick-shadow);
+  position: absolute;
+}
+
+@keyframes move {
+  50% {
+    transform: translateX(-0.5rem) rotate(-5deg);
+  }
+  100% {
+    transform: translateX(0.25rem) rotate(1deg);
+  }
+}
+
+@keyframes eyes {
+  0% {
+    transform: scaleY(1) translate(0, 0);
+  }
+  10% {
+    transform: scaleY(-1) translate(0, -0.5rem);
+  }
+  100% {
+    transform: scaleY(-1) translate(0, -0.5rem);
+  }
+}
+
+@keyframes lip {
+  to {
+    transform: scaleY(0.7);
+  }
+}
+
+@keyframes saliva {
+  0% {
+    transform: scaleY(1.5);
+  }
+  50% {
+    transform: scaleY(1.75);
+  }
+  75% {
+    transform: scaleY(1.6);
+  }
+  100% {
+    transform: scaleY(2);
+  }
+}

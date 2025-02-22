@@ -1,0 +1,221 @@
+/* Custom styles for the offcanvas */
+.offcanvas-sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  height: 100%;
+  background-color: #343a40;
+  color: #fff;
+  z-index: 1050;
+  transition: left 0.3s ease-in-out;
+  overflow-y: auto;
+}
+.offcanvas-sidebar.open {
+  left: 0;
+}
+.offcanvas-header {
+  padding: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.offcanvas-body {
+  padding: 15px;
+}
+
+.active_link {
+  background-color: #212834 !important;
+  font-weight: bolder;
+  color: wheat !important;
+}
+
+/* Hover effect for the pencil icon */
+.col-md-4:hover .edit-icon {
+  display: block; /* Show pencil icon when the parent div is hovered */
+}
+
+.edit-icon {
+  display: none; /* Initially hide the pencil icon */
+  cursor: pointer; /* Make it clickable */
+  z-index: 10;
+}
+
+/* text */
+.text-green {
+  color: orangered !important;
+}
+
+modal {
+  border-radius: 0px !important;
+}
+
+/* checkboxes for admin */
+/* Custom checkbox container */
+.custom-checkbox {
+  margin-bottom: 15px; /* Increase spacing between checkboxes */
+}
+
+/* Custom checkbox input */
+.custom-checkbox-input {
+  width: 20px; /* Increase checkbox width */
+  height: 20px; /* Increase checkbox height */
+  margin-top: 0.3rem; /* Align checkbox vertically */
+  margin-right: 10px; /* Add spacing between checkbox and label */
+}
+
+/* Custom checkbox label */
+.custom-checkbox-label {
+  font-size: 18px; /* Increase label font size */
+  padding-left: 5px; /* Add spacing between checkbox and label */
+}
+
+/* bootstrap cards */
+.c {
+  background-color: #fff;
+  border-radius: 10px;
+  border: none;
+  position: relative;
+  margin-bottom: 30px;
+  box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, 0.1),
+    0 0.9375rem 1.40625rem rgba(90, 97, 105, 0.1),
+    0 0.25rem 0.53125rem rgba(90, 97, 105, 0.12),
+    0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1);
+}
+.l-bg-cherry {
+  background: linear-gradient(to right, #493240, #f09) !important;
+  color: #fff;
+}
+
+.l-bg-blue-dark {
+  background: linear-gradient(to right, #373b44, #4286f4) !important;
+  color: #fff;
+}
+
+.l-bg-green-dark {
+  background: linear-gradient(to right, #0a504a, #38ef7d) !important;
+  color: #fff;
+}
+
+.l-bg-orange-dark {
+  background: linear-gradient(to right, #a86008, #ffba56) !important;
+  color: #fff;
+}
+
+.c .card-statistic-3 .card-icon-large .bi {
+  font-size: 155px;
+  margin-left: 50px !important;
+}
+
+.c .card-statistic-3 .card-icon {
+  text-align: center;
+  line-height: 50px;
+  margin-left: 15px;
+  color: #000;
+  position: absolute;
+  right: -5px;
+  top: 20px;
+  opacity: 0.1;
+}
+
+.l-bg-purple-dark {
+  background: linear-gradient(135deg, #4e54c8, #8f94fb) !important;
+  color: #fff;
+}
+
+.l-bg-pink-dark {
+  background: linear-gradient(135deg, #d4145a, #fbb03b) !important;
+  color: #fff;
+}
+
+.l-bg-red-dark {
+  background: linear-gradient(135deg, #ff4b2b, #ff416c) !important;
+  color: #fff;
+}
+
+.l-bg-teal-dark {
+  background: linear-gradient(135deg, #007991, #78ffd6) !important;
+  color: #fff;
+}
+
+.l-bg-yellow-dark {
+  background: linear-gradient(135deg, #f9d423, #e65c00) !important;
+  color: #fff;
+}
+
+.l-bg-indigo-dark {
+  background: linear-gradient(135deg, #3a1c71, #d76d77) !important;
+  color: #fff;
+}
+
+.l-bg-brown-dark {
+  background: linear-gradient(135deg, #603813, #b29f94) !important;
+  color: #fff;
+}
+
+.l-bg-gold-dark {
+  background: linear-gradient(135deg, #ffd700, #daa520) !important;
+  color: #fff;
+}
+
+.l-bg-magenta-dark {
+  background: linear-gradient(135deg, #ff0099, #ff6a00) !important;
+  color: #fff;
+}
+
+.l-bg-lime-dark {
+  background: linear-gradient(135deg, #76b852, #8dc26f) !important;
+  color: #fff;
+}
+
+.l-bg-cyan-dark {
+  background: linear-gradient(135deg, #00b4db, #0083b0) !important;
+  color: #fff;
+}
+
+.l-bg-blue-dark {
+  background: linear-gradient(135deg, #1e3c72, #2a5298) !important;
+  color: #fff;
+}
+
+.l-bg-green-dark {
+  background: linear-gradient(135deg, #56ab2f, #a8e063) !important;
+  color: #fff;
+}
+
+.l-bg-orange-dark {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b) !important;
+  color: #fff;
+}
+
+.l-bg-violet-dark {
+  background: linear-gradient(135deg, #4776e6, #8e54e9) !important;
+  color: #fff;
+}
+
+.l-bg-maroon-dark {
+  background: linear-gradient(135deg, #800000, #c04848) !important;
+  color: #fff;
+}
+
+.l-bg-olive-dark {
+  background: linear-gradient(135deg, #808000, #b5b56e) !important;
+  color: #fff;
+}
+
+.l-bg-navy-dark {
+  background: linear-gradient(135deg, #000080, #1c1c8d) !important;
+  color: #fff;
+}
+
+.l-bg-silver-dark {
+  background: linear-gradient(135deg, #c0c0c0, #e0e0e0) !important;
+  color: #fff;
+}
+
+.l-bg-coral-dark {
+  background: linear-gradient(135deg, #ff7f50, #ff4040) !important;
+  color: #fff;
+}
+
+.choices__inner {
+  min-height: 39px !important;
+}

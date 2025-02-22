@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+      integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,600|Open+Sans:400,600,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/spur.css" />
+    <title>Create Admin | Portify</title>
+  </head>
+
+  <body>
+    <div class="form-screen mb-4">
+      <a href="index.html" class="spur-logo"
+        ><img src="assets/img/main-logo.png" alt="Portify Logo" width="200px"
+      /></a>
+      <div class="card account-dialog">
+        <div class="card-header bg-primary text-white">Create an admin</div>
+        <div class="card-body">
+          <form
+            action="#!"
+            autocomplete="off"
+            class="needs-validation"
+            novalidate
+          >
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                name="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Enter email"
+                required
+              />
+              <div class="invalid-feedback">
+                Please provide a valid email address.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="adminName"
+                name="adminName"
+                placeholder="Admin Name"
+                required
+              />
+              <div class="invalid-feedback">Please enter your name.</div>
+            </div>
+
+            <div class="form-group">
+              <select
+                class="form-control"
+                id="adminRole"
+                name="adminRole"
+                required
+              >
+                <option value="" disabled selected>Select a role</option>
+                <option value="master">Master</option>
+                <option value="visa associate">Visa Associate</option>
+                <option value="visa consultant">Visa Consultant</option>
+                <option value="editor">Editor</option>
+                <option value="accountant">Accountant</option>
+              </select>
+              <div class="invalid-feedback">Please select a role.</div>
+            </div>
+
+            <div class="form-group">
+              <select
+                class="form-control"
+                id="adminDept"
+                name="adminDept"
+                required
+              >
+                <option value="" disabled selected>Select a department</option>
+                <option value="inbound_visa_team">Inbound Visa Team</option>
+                <option value="outbound_visa_team">Outbound Visa Team</option>
+                <option value="master_admin">Master Admin</option>
+                <option value="visa_team">Visa Team</option>
+              </select>
+              <div class="invalid-feedback">Please select a department.</div>
+            </div>
+
+            <div class="account-dialog-actions">
+              <button type="submit" class="btn btn-primary">
+                Create Admin
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        const mid = new URLSearchParams(window.location.search).get("mid");
+
+        if (!mid) {
+          window.location.href = "404.html"; // Redirect if 'mid' is missing
+        } else {
+          try {
+            const response = await fetch(`api/v1/checkMid.php?mid=${mid}`);
+            const data = await response.json(); // Parse the JSON response
+
+            if (response.ok && data.status === "success") {
+              console.log("Mid found:", data.message); // Optionally log the success message
+            } else {
+              // If the response status is not 'success', or mid is not found
+              alert("Error: Mid not found");
+              window.location.href = "404.html"; // Redirect to 404 if the API call fails
+            }
+          } catch (error) {
+            alert("Error: Mid not found");
+            window.location.href = "404.html"; // Redirect to 404 if there is an error
+          }
+        }
+      });
+    </script>
+
+    <script>
+      (function () {
+        "use strict";
+        window.addEventListener(
+          "load",
+          function () {
+            var forms = document.getElementsByClassName("needs-validation");
+            Array.prototype.filter.call(forms, function (form) {
+              form.addEventListener(
+                "submit",
+                function (event) {
+                  if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                  } else {
+                    // Prevent default form submission
+                    event.preventDefault();
+
+                    // Automatically gather all form fields
+                    const formData = new FormData(form);
+                    const dataToSend = {};
+                    formData.forEach((value, key) => {
+                      dataToSend[key] = value;
+                    });
+
+                    // Send the data to the server
+                    fetch("api/v1/create_admin.php", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify(dataToSend),
+                    })
+                      .then((response) => response.text()) // Get raw response as text
+                      .then((data) => {
+                        try {
+                          // Try parsing the response as JSON
+                          const jsonData = JSON.parse(data);
+                          // console.log("Response:", jsonData);
+                          if (jsonData.status === "success") {
+                            // Show success message
+                            alert("Success: " + jsonData.message);
+                            location.href = "view.php?view=admins";
+                          } else {
+                            // Show error message if status is not success
+                            alert("Error: " + jsonData.message);
+                          }
+                        } catch (error) {
+                          // Handle JSON parsing error
+                          // console.error("JSON parse error:", error);
+                          alert(
+                            "An error occurred while processing the response."
+                          );
+                        }
+                      })
+                      .catch((error) => {
+                        console.error("Error:", error);
+                        alert("An error occurred while submitting the form.");
+                      });
+                  }
+                  form.classList.add("was-validated");
+                },
+                false
+              );
+            });
+          },
+          false
+        );
+      })();
+    </script>
+  </body>
+</html>
